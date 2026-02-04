@@ -4,5 +4,5 @@ import eslintConfig from "./eslint.config";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), eslintConfig],
+  plugins: [react()],
 });
