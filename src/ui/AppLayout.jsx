@@ -10,13 +10,10 @@ function AppLayout() {
   return (
     <div className="layout">
       {isLoading && <Loader />}
-
       <Header />
-
       <main>
         <Outlet />
       </main>
-
       <CartOverview />
     </div>
   );
