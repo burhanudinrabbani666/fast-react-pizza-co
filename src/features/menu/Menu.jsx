@@ -14,3 +14,5 @@ function Menu() {
 }
 
 export default Menu;
+
+// check is data was loading
