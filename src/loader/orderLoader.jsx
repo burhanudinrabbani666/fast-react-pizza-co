@@ -1,6 +1,6 @@
 import { getOrder } from "../services/apiRestaurant";
 
-export async function OrderLoader({ params }) {
+export default async function orderLoader({ params }) {
   const order = await getOrder(params.orderId);
 
   return order;

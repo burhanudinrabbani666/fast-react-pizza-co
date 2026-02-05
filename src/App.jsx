@@ -9,7 +9,8 @@ import AppLayout from "./ui/AppLayout";
 import NotFound from "./ui/Error";
 
 import menuLoader from "./loader/menuLoader";
-import { OrderLoader } from "./loader/orderLoader";
+import createOrderAction from "./features/order/createOrderAction";
+import orderLoader from "./loader/orderLoader";
 
 const router = createBrowserRouter([
   {
@@ -20,18 +21,22 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "/menu",
-        element: <Menu />,
         loader: menuLoader,
+        element: <Menu />,
         errorElement: <NotFound />,
       },
       { path: "/cart", element: <Cart /> },
       {
         path: "/order/:orderId",
+        loader: orderLoader,
         element: <Order />,
-        loader: OrderLoader, // loader
         errorElement: <NotFound />,
       },
-      { path: "/order/new", element: <CreateOrder /> },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+        action: createOrderAction,
+      },
     ],
   },
 ]);
