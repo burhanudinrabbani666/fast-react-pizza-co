@@ -7,12 +7,14 @@ import Cart from "./features/cart/Cart";
 import CreateOrder from "./features/order/CreateOrder";
 import AppLayout from "./ui/AppLayout";
 
+import menuLoader from "./loader/menuLoader";
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/menu", element: <Menu /> },
+      { path: "/menu", element: <Menu />, loader: menuLoader },
       { path: "/cart", element: <Cart /> },
       { path: "/order/:orderId", element: <Order /> },
       { path: "/order/new", element: <CreateOrder /> },
