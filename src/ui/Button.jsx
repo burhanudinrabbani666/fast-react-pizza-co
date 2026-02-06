@@ -1,8 +1,3 @@
-# Reusing style components
-
-More reusable
-
-```jsx
 import { Link } from "react-router-dom";
 
 function Button({ children, disabled, to }) {
@@ -24,6 +19,3 @@ function Button({ children, disabled, to }) {
 }
 
 export default Button;
-```
-
-Next: [Absolute position](./23-absolute-position.md)
