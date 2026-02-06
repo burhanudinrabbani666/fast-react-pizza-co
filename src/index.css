@@ -63,3 +63,7 @@ body {
       100% 100%;
   }
 }
+
+input {
+  background-color: white;
+}
