@@ -13,7 +13,7 @@ function AppLayout() {
       <Header />
 
       <div className="overflow-scroll">
-        <main className="mx-auto max-w-3xl overflow-scroll bg-neutral-200">
+        <main className="mx-auto max-w-3xl overflow-scroll">
           <Outlet />
         </main>
       </div>

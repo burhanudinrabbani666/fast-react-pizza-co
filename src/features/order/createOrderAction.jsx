@@ -25,6 +25,8 @@ export default async function createOrderAction({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   // If form submit is okey redirect
-  const newOrder = await createOrder(order);
-  return redirect(`/order/${newOrder.id}`);
+  // const newOrder = await createOrder(order);
+  // return redirect(`/order/${newOrder.id}`);
+
+  return;
 }
