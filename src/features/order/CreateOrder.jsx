@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 import Button from "../../ui/Button";
+import { useSelector } from "react-redux";
 
 // https://uibakery.io/regex-library/phone-number
 
@@ -32,6 +33,7 @@ function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   const isSubmiting = navigation.state === "submitting";
+  const username = useSelector((state) => state.user.username);
 
   const formErrors = useActionData();
 
@@ -49,7 +51,13 @@ function CreateOrder() {
       <Form method="POST" className="p-2">
         <div className={inputElementStyle}>
           <label className={labelElementStyle}>First Name</label>
-          <input type="text" name="customer" required className="input grow" />
+          <input
+            type="text"
+            name="customer"
+            required
+            className="input grow"
+            defaultValue={username} // using defaul value so ust display, can change
+          />
         </div>
 
         <div className={inputElementStyle}>
