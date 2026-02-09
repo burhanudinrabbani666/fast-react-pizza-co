@@ -1,16 +1,22 @@
 // Test ID: IIDSAT
+import { useFetcher, useLoaderData } from "react-router-dom";
 
-import { useLoaderData } from "react-router-dom";
 import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
 import OrderItem from "./OrderItem";
+import { useEffect } from "react";
+import { Features } from "tailwindcss";
 
 function Order() {
   const order = useLoaderData();
+
+  const fetcher = useFetcher();
+
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
+
   const {
     id,
     status,

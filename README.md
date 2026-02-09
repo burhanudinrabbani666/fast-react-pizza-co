@@ -18,7 +18,10 @@ This project is a learning exercise from Jonas Schmedtmann's Udemy course: [The 
 - Master advanced technologies: React Router, Redux, and Tailwind CSS
 - Understand data flow patterns in React Router
 - Build a solid foundation for full-stack development
-- More objectives coming soon as the project evolves
+- Build and understanding fast and productive styling with tailwind CSS
+- Creating reusable button with tye props and eventHandlers
+- Practice data flow and how to submiting to cart wih redux
+- Advance using redux syntax
 
 ## Tech Stack
 
@@ -31,18 +34,18 @@ This project is a learning exercise from Jonas Schmedtmann's Udemy course: [The 
 
 ## Learning Progress
 
-| Section | Topics                                                               | Status         |
-| ------- | -------------------------------------------------------------------- | -------------- |
-| 1       | [React Router with data loading](./notes/01-application-planning.md) | ✅ Completed   |
-| 2       | [Tailwind CSS crash course]()                                        | ✍️ In Progress |
-| 3       | [Adding Redux and Advanced React Router]()                           | ⏳ Upcoming    |
+| Section | Topics                                                                      | Status         |
+| ------- | --------------------------------------------------------------------------- | -------------- |
+| 1       | [React Router with data loading](./notes/01-application-planning.md)        | ✅ Completed   |
+| 2       | [Tailwind CSS crash course](./notes/11-what-is-tailwind.md)                 | ✅ Completed   |
+| 3       | [Adding Redux and Advanced React Router](./notes/29-modeling-user-state.md) | ✍️ In Progress |
 
 ## Key Learnings
 
 - **Advanced routing** - Implementing nested routes, loaders, and actions with React Router
 - **Professional error handling** - Managing loading states and errors in a production-ready manner
 - **Modern styling** - Building responsive UIs with Tailwind CSS utility classes
-- More learnings coming soon as I progress through the course
+- **Data flow using advance redux** - implemnet CRUD with state management REDUX
 
 ## 🚀 Getting Started
 
