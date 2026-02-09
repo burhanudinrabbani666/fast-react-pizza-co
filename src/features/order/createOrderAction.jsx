@@ -26,10 +26,12 @@ export default async function createOrderAction({ request }) {
 
   if (Object.keys(errors).length > 0) return errors;
 
+  // return null;
+
   // If form submit is okey redirect
   const newOrder = await createOrder(order);
 
-  // Do mot overuse
+  // // Do mot overuse
   store.dispatch(clearCart());
 
   return redirect(`/order/${newOrder.id}`);
