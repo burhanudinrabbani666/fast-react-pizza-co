@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 import Button from "../../ui/Button";
 import { useSelector } from "react-redux";
+import { getCart, getTotalCartPrice } from "../cart/cartSLice";
+import EmptyCart from "../cart/EmptyCart";
+import { formatCurrency } from "../../utils/helpers";
 
 // https://uibakery.io/regex-library/phone-number
 
@@ -30,14 +33,18 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
-  // const [withPriority, setWithPriority] = useState(false);
+  const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   const isSubmiting = navigation.state === "submitting";
   const username = useSelector((state) => state.user.username);
-
   const formErrors = useActionData();
 
-  const cart = fakeCart;
+  const cart = useSelector(getCart);
+  const totalCartPrize = useSelector(getTotalCartPrice);
+  const priorityPrize = withPriority ? totalCartPrize * 0.2 : 0;
+  const totalPrize = totalCartPrize + priorityPrize;
+
+  if (cart.length === 0) return <EmptyCart />;
 
   const inputElementStyle =
     "mb-5 flex flex-col gap-2 sm:flex-row sm:items-center";
@@ -90,8 +97,8 @@ function CreateOrder() {
             type="checkbox"
             name="priority"
             id="priority"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
+            value={withPriority ? "on" : "off"}
+            onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority">Want to yo give your order priority?</label>
         </div>
@@ -100,7 +107,9 @@ function CreateOrder() {
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
 
           <Button disabled={isSubmiting} type="primary">
-            {isSubmiting ? "Packing order..." : "Order now"}
+            {isSubmiting
+              ? "Packing order..."
+              : `Order now from ${formatCurrency(totalPrize)}`}
           </Button>
         </div>
       </Form>

@@ -1,5 +1,7 @@
 import { redirect } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
+import store from "../../store";
+import { clearCart } from "../cart/cartSLice";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -25,8 +27,10 @@ export default async function createOrderAction({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   // If form submit is okey redirect
-  // const newOrder = await createOrder(order);
-  // return redirect(`/order/${newOrder.id}`);
+  const newOrder = await createOrder(order);
 
-  return;
+  // Do mot overuse
+  store.dispatch(clearCart());
+
+  return redirect(`/order/${newOrder.id}`);
 }
